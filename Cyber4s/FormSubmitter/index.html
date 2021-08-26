@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="beauty.css">
+</head>
+<body>
+    <h1 id="title">Welcome to The form Submitter</h1>
+    <div id="typehere"><p id="description">here you submit all your data</p>
+    <form id="survey-form">
+        <label id="name-label" for="">Put your name<input required="name" placeholder="Elay Gelbart" id="name" type="text"></label></br>
+        <label id="email-label" for="">Put your email<input required="email" id="email" type="email" placeholder="elaygelbart@gmail.com"></label></br>
+        <label id="number-label" for="">Put your age<input id="number" type="number" min="0" max="120" placeholder="22"></label></br>
+        <label>What is your favorite Fruit?</br>
+            <select name="fruits" id="dropdown">
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="peach">Peach</option>
+            <option value="strewberry">Strewberry</option>
+            </select>
+        </label>
+            <label>Your Favorite Language is?</br>
+            <input name="language" type="radio" value="JS">JS</br>
+            <input name="language" type="radio" value="HTML">HTML</br>
+            <input name="language" type="radio" value="CSS">CSS
+        </label>
+        <label><input type="checkbox" value="basketball" name="sport">basketball</br>
+        <input type="checkbox" value="soccer" name="sport">soccer</br>
+        <input type="checkbox" value="football" name="sport">football</br>
+        <input type="checkbox" value="tennis" name="sport">tennis</br>
+        <input type="checkbox" value="handball" name="sport">handball</br>
+        <input type="checkbox" value="chess" name="sport">chess</label>
+        <label>Leave me a comment:</br><textarea>get youre text here</textarea></label></br>
+        <label ><button id="submit" type="submit">hello</button></label>
+    </form>
+    </div>
+</body>
+</html>

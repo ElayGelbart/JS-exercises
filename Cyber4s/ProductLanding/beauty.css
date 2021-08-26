@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  animation-name: backgroundchange;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+#nav-bar {
+  display: flex;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  background-color: grey;
+}
+.nav-link {
+  display: flex;
+  color: seashell;
+  margin-left: 5px;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 33vw;
+}
+h1 {
+  animation-name: headlinecolor;
+  animation-duration: 400s;
+  animation-iteration-count: infinite;
+}
+@keyframes headlinecolor {
+  0% {
+    color: red;
+    padding-right: 5px;
+    font-size: 2em;
+  }
+  10% {
+    color: yellow;
+    padding-left: 25px;
+    font-size: 1em;
+  }
+  20% {
+    color: greenyellow;
+    padding-right: 25px;
+    font-size: 2em;
+  }
+  30% {
+    color: orange;
+    padding-left: 25px;
+    font-size: 1em;
+  }
+  40% {
+    color: cyan;
+    padding-right: 25px;
+    font-size: 2em;
+  }
+  50% {
+    color: purple;
+    padding-left: 25px;
+    font-size: 1em;
+  }
+  60% {
+    color: darkgrey;
+    padding-right: 25px;
+    font-size: 2em;
+  }
+  70% {
+    color: sandybrown;
+    padding-left: 25px;
+    font-size: 1em;
+  }
+  80% {
+    color: violet;
+    padding-right: 25px;
+    font-size: 2em;
+  }
+  90% {
+    color: maroon;
+    padding-left: 25px;
+    font-size: 1em;
+  }
+  100% {
+    color: red;
+    padding-right: 25px;
+    font-size: 2em;
+  }
+}
+@keyframes backgroundchange {
+  0% {
+    background-color: mintcream;
+  }
+  50%{
+      background-color:gray;
+  }
+  100% {
+    background-color: mintcream;  
+  }
+}
+@media (max-width: 300px) {
+  body {
+    background-color: red;
+  }
+}
