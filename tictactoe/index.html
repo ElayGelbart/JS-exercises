@@ -6,20 +6,20 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>the tic tac Game!</h1>
-    <h2>Welcome</h2>
+    <h1>the tic tac Game</h1>
+    <h2>Just Click On The Squares</h2>
     <div id="wholeGame">
-      <span class="sqare" id="leftTop"></span>
-      <span class="sqare" id="centerTop"></span>
-      <span class="sqare" id="rightTop"></span>
+      <span class="sqare" id="leftTop" onclick="addMark('leftTop')"></span>
+      <span class="sqare" id="centerTop" onclick="addMark('centerTop')"></span>
+      <span class="sqare" id="rightTop" onclick="addMark('rightTop')"></span>
   </br>
-      <span class="sqare" id="leftCenter"></span>
-      <span class="sqare" id="centerCenter"></span>
-      <span class="sqare" id="rightCenter"></span>
+      <span class="sqare" id="leftCenter" onclick="addMark('leftCenter')"></span>
+      <span class="sqare" id="centerCenter" onclick="addMark('centerCenter')"></span>
+      <span class="sqare" id="rightCenter" onclick="addMark('rightCenter')"></span>
   </br>
-      <span class="sqare" id="leftBottom"></span>
-      <span class="sqare" id="centerBottom"></span>
-      <span class="sqare" id="rightBottom"></span>
+      <span class="sqare" id="leftBottom" onclick="addMark('leftBottom')"></span>
+      <span class="sqare" id="centerBottom" onclick="addMark('centerBottom')"></span>
+      <span class="sqare" id="rightBottom" onclick="addMark('rightBottom')"></span>
     </div>
     <div id='actions'>
       <p id='resetAction'>Reset The Game</p>

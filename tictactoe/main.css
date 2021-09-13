@@ -2,15 +2,22 @@ body {
   text-align: center;
   padding: 0px;
   margin: 0px;
+  background-color: azure;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 span {
-  display:inline-flex;
+  display: inline-flex;
   margin: 0%;
   max-width: 200px;
   width: 33%;
   max-height: 200px;
   height: 33%;
   border: 1px solid black;
+  background-color: blueviolet;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #wholeGame {
   width: 600px;
@@ -21,33 +28,8 @@ span {
   display: flex;
   flex-wrap: wrap;
 }
-span{
-  background-color: blue;
-}
-h4{
-  position: relative;
-  margin:auto;
-  font-size:5em;
-}
-
-.row{
-  background-color: red;
-}
-
-.row::after{
-  content: "";
-  position: absolute;
-  max-width: 200px;
-  width: 33%;
+.victorySelect {
+  text-decoration: line-through;
   background-color: black;
-  z-index: 3;
-  top:45%;
-  height: 2px;
-}
-
-.column{
-  background-color: red;
-}
-.diagonal-left{
-  background-color: red;
+  color: blanchedalmond;
 }
