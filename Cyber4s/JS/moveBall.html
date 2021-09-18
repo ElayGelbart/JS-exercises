@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #field {
+            background-color: aqua;
+            border: 5px solid black;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+        }
+
+        #ball {
+            transition: 0.5s all;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="field"><img src="https://en.js.cx/clipart/ball.svg" id="ball"></div>
+    <script>
+        const logKey = (click) => {
+            const ball = document.getElementById("ball");
+            const field = document.getElementById("field");
+            const topf = field.getBoundingClientRect().top;
+            const leftf = field.getBoundingClientRect().left;
+            const ballwidth = ball.offsetWidth/2;
+            const ballheight = ball.offsetHeight/2;
+            let finalleft = click.clientX - leftf - ballwidth;
+            let finaltop = click.clientY - topf - ballheight;
+            if (finalleft < 0 && finaltop >= 0) {
+                ball.style.left = `0px`;
+                ball.style.top = `${finaltop}px`;
+            }
+            else if (finaltop < 0 && finalleft >= 0) {
+                ball.style.top = `0px`;
+                ball.style.left = `${finalleft}px`;
+            }
+            else if (finaltop < 0 && finalleft < 0) {
+                ball.style.top = `0px`;
+                ball.style.left = `0px`;
+            }
+            else {
+                ball.style.left = `${finalleft}px`;
+                ball.style.top = `${finaltop}px`;
+            }
+        }
+        field.addEventListener('click', logKey);
+    </script>
+</body>
+
+</html>
