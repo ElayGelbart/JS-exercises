@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            background-color: grey;
+            height: 130px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            position: absolute;
+            transition: 0.2s;
+        }
+
+        img {
+            display: block;
+        }
+    </style>
+    <script type="module">
+        const buttonLeft = document.getElementById("left");
+        const buttonRight = document.getElementById("right");
+        document.getElementById("gallery").style.width = `${(document.getElementsByClassName("images")[0].offsetWidth) * 3 }px`;
+        const listitems = document.querySelectorAll("li");
+        for (let i = 0; i < listitems.length; i++) {
+            listitems[i].style.left = `${(i) * 130}px`
+        }
+        const changeImgright = () => {
+            if(listitems[listitems.length-1].style.left =='260px'){
+                return;
+            }
+            for (let i = 0; i < listitems.length; i++) {
+                listitems[i].style.left = `${listitems[i].style.left.replace(/[px]/g,"") - 260}px`
+            }
+        }
+        const changeImgleft = () => {
+            if(listitems[0].style.left =='0px'){
+                return;
+            }
+            for (let i = 0; i < listitems.length; i++) {
+                listitems[i].style.left = `${+(listitems[i].style.left.replace(/[px]/g,"")) + 260}px`
+            }
+        }
+        buttonLeft.addEventListener("click", changeImgleft);
+        buttonRight.addEventListener("click", changeImgright);
+    </script>
+</head>
+
+<body>
+
+
+    <ul id="gallery">
+        <li><img src="https://en.js.cx/carousel/1.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/2.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/3.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/4.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/5.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/6.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/7.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/8.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/9.png" class="images"></li>
+        <li><img src="https://en.js.cx/carousel/10.png"></li>
+    </ul>
+    <button class="arrow" id="left">⇦</button>
+    <button class="arrow" id="right">⇨</button>
+</body>
+
+</html>
