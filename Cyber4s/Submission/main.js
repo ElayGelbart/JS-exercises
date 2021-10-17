@@ -1,20 +1,8 @@
-import { add, sub, multiply, divide, equals } from './helpers/math.js';
+import css from './style.css';
+// import html from "./index.html";
+import { selectCallbackAction } from './helpers/callback.js';
+import { equals } from './helpers/math.js';
 
-/// select callback ///
-const selectCallbackAction = (ActionString) => {
-  if (ActionString === "/") {
-    return divide;
-  }
-  else if (ActionString === "*") {
-    return multiply;
-  }
-  else if (ActionString === "+") {
-    return add;
-  }
-  else if (ActionString === "-") {
-    return sub;
-  }
-}
 
 /// DOM ///
 let number1, number2, currentCallback;
