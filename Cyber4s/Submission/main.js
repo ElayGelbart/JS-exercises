@@ -17,7 +17,7 @@ const selectCallbackAction = (ActionString) => {
 }
 
 /// DOM ///
-const number1, number2, currentCallback;
+let number1, number2, currentCallback;
 const action = (kindOfAction) => {
   number1 = parseInt(document.getElementById("NumberInput").value);
   currentCallback = selectCallbackAction(kindOfAction);
