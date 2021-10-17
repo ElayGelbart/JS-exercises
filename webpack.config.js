@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./Cyber4s/Submission/main.js",
@@ -6,6 +7,12 @@ module.exports = {
     filename: "app.js",
     path: path.resolve(__dirname, "dist"),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './Cyber4s/Submission/index.html',
+      filename: "./index.html"
+    }),
+  ],
   module: {
     rules: [
       {
@@ -13,7 +20,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         loader: "html-loader",
       },
     ],

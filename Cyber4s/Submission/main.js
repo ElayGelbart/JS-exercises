@@ -1,13 +1,13 @@
 import css from './style.css';
-// import html from "./index.html";
+import html from "./index.html";
 import { selectCallbackAction } from './helpers/callback.js';
-import { equals } from './helpers/math.js';
+import { equals, addNumberToValue, deleteNumber } from './helpers/math.js';
 
 
 /// DOM ///
 let number1, number2, currentCallback;
 const action = (kindOfAction) => {
-  number1 = parseInt(document.getElementById("NumberInput").value);
+  number1 = Number(document.getElementById("NumberInput").value);
   currentCallback = selectCallbackAction(kindOfAction);
   document.getElementById("NumberInput").value = '';
 }
@@ -30,4 +30,19 @@ document.getElementById("btnMinus").addEventListener("click", () => {
 document.getElementById("btnPlus").addEventListener("click", () => {
   action("+")
 });
+document.getElementById("btnPreste").addEventListener("click", () => {
+  action("%")
+});
+document.getElementById("btnSqrt").addEventListener("click", () => {
+  action("sqrt")
+});
 document.getElementById("btnEqual").addEventListener("click", sum);
+
+document.getElementById("deleteBtn").addEventListener("click", deleteNumber);
+
+const numberBtn = document.getElementsByClassName("num");
+for (let btn of numberBtn) {
+  btn.addEventListener("click", () => {
+    addNumberToValue(btn.value)
+  });
+}

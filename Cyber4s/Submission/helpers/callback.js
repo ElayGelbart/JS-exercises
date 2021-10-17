@@ -1,4 +1,4 @@
-import { add, sub, multiply, divide } from './math.js';
+import { add, sub, multiply, divide, persentage, sqrt } from './math.js';
 export const selectCallbackAction = (ActionString) => {
   if (ActionString === "/") {
     return divide;
@@ -11,5 +11,11 @@ export const selectCallbackAction = (ActionString) => {
   }
   else if (ActionString === "-") {
     return sub;
+  }
+  else if (ActionString === "%") {
+    return persentage;
+  }
+  else if (ActionString === "sqrt") {
+    return sqrt;
   }
 }
