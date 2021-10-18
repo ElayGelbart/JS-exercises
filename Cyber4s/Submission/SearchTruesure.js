@@ -36,6 +36,7 @@ async function openChestSync(chestPath) {
     if (Object.keys(chestObj)[0] == 'clue') {
       console.log('made it to clues');
       try {
+        lastDirUse = chestPath;
         fs.accessSync(Object.values(chestObj)[0]);
         findTreasureSync(`${__dirname}\\${chestObj.clue.replace(/\//g, "\\")}\\chest-1.json`);
       } catch (error) {
