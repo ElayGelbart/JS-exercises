@@ -1,7 +1,6 @@
 const fs = require('fs');
-const path = require('path');
 const fsPromises = require('fs/promises');
-const mazeFolderDirString = `./maze`;
+const process = require('process');
 let mapTxt = '';
 
 async function findTruesure(mazePath) {
@@ -10,6 +9,9 @@ async function findTruesure(mazePath) {
   for (let value of dirArray) {
     if (/chest/.test(value)) {
       openAsyncChest(`${mazePath}\\${value}`);
+    }
+    else if (/room-[\d]$/.test(value)) {
+      findTruesure(`${mazePath}\\${value}`);
     }
   }
 }
@@ -25,7 +27,7 @@ async function openAsyncChest(chestPath) {
         }
         else if (Object.keys(chestObj) == 'treasure') {
           console.log('Found treasure');
-          drawMap('Here is Gold');
+          drawMap('Above me is Gold');
         }
       } catch (err) {
         console.log(err)
@@ -36,9 +38,11 @@ async function openAsyncChest(chestPath) {
     })
 }
 
-async function drawMap(currentPath) {
+function drawMap(currentPath) {
   mapTxt += currentPath + '\r\n';
-  fsPromises.writeFile('./map.txt', mapTxt);
+  fs.writeFileSync('./map.txt', mapTxt);
+  if (currentPath == 'Above me is Gold') {
+    process.exit(1)
+  }
 }
-
-findTruesure(mazeFolderDirString);
+findTruesure('./maze');
