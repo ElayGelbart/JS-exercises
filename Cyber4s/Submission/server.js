@@ -15,6 +15,8 @@ mongoose.connect(MongoUrl).then(() => {
   console.log("Mongo In");
 });
 
+app.use(express.json())
+
 app.get("/cities", async (req, res) => {
   const cityArr = await Agents.aggregate([{ $project: { agentCity: 1, _id: 0 } }]);
   const cityonlyARR = cityArr.map(Obj => { return Object.values(Obj)[0] }).flat().filter((city, i, arr) => arr.indexOf(city) === i);
@@ -29,6 +31,16 @@ app.get("/agents/:city", async (req, res) => {
     res.send("city not found")
   }
 });
+
+app.put("/agent/:id/edit", async (req, res) => {
+  const newCity = req.body.city;
+  try {
+    const response = await Agents.findOneAndUpdate({ _id: req.params.id }, { agentCity: newCity })
+    res.send("sucseesd");
+  } catch (err) {
+    res.send("id not here")
+  }
+})
 
 app.listen(port, () => {
   console.log(`listning to ${port}`);
