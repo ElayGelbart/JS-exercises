@@ -23,9 +23,9 @@ app.get("/cities", async (req, res) => {
   res.send(cityonlyARR);
 });
 
-app.get("/agents/:city", async (req, res) => {
+app.get("/agents", async (req, res) => {
   try {
-    const agentFromCity = await Agents.find({ agentCity: req.params.city });
+    const agentFromCity = await Agents.find({ agentCity: req.query.city });
     res.send(agentFromCity);
   } catch (err) {
     res.send("city not found")
