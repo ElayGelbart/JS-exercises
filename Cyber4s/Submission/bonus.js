@@ -25,10 +25,19 @@ const questionScheme = mongoose.Schema({
 
 const QuestionModel = mongoose.model("Qeustion", questionScheme);
 
+app.use(express.json());
+
 app.get("/list", async (req, res) => {
   const questionList = await QuestionModel.aggregate([{ $project: { _id: 0, title: 1 } }])
   res.send(questionList);
 });
+
+app.put("/update", async (req, res) => {
+  const questionId = req.body.id;
+  const questionTitle = req.body.title;
+  await QuestionModel.updateMany({ _id: questionId }, { $set: { title: questionTitle } });
+  res.send("sucssed");
+})
 
 app.listen(8080, () => {
   console.log('listening to 8080');
