@@ -39,6 +39,24 @@ app.put("/update", async (req, res) => {
   res.send("sucssed");
 })
 
+app.post("/create", async (req, res) => {
+  const questionTitle = req.body.title;
+  const questionAnswers = req.body.answers;
+  const questionCorrect = req.body.correct;
+  const questionDifficulty = req.body.difficulty;
+  for (let answer of questionAnswers) {
+    if (answer == questionCorrect) {
+      break;
+    }
+    if (questionAnswers.indexOf(answer) == questionAnswers.length - 1) {
+      return;
+    }
+  }
+  await QuestionModel.insertMany({ title: questionTitle, correctAnswer: questionCorrect, answers: questionAnswers, difficulty: questionDifficulty });
+  console.log(await QuestionModel.find({}));
+  res.send("got it");
+})
+
 app.listen(8080, () => {
   console.log('listening to 8080');
 })
