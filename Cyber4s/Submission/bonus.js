@@ -53,8 +53,14 @@ app.post("/create", async (req, res) => {
     }
   }
   await QuestionModel.insertMany({ title: questionTitle, correctAnswer: questionCorrect, answers: questionAnswers, difficulty: questionDifficulty });
-  console.log(await QuestionModel.find({}));
   res.send("got it");
+});
+
+app.delete("/remove/:id", async (req, res) => {
+  const questionId = req.params.id;
+  await QuestionModel.deleteMany({ _id: questionId });
+  console.log(await QuestionModel.find({}));
+  res.send({});
 })
 
 app.listen(8080, () => {
