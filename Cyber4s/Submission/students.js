@@ -101,6 +101,51 @@ const updateYahalomStudentToJS = async () => {
 // Update JS TO JARAEN BECAUSE FAKER
 // updateYahalomStudentToJS();
 
+const updateKorenStudentToNewBirth = async () => {
+  await StudentModel.updateMany({ name: "Jaren" }, { $set: { birth: new Date("1998/12/02") } });
+  mongoose.connection.close();
+}
+// Update Birth Of Jaren Beacause Faker
+// updateKorenStudentToNewBirth();
+
+const findoOostudents = async () => {
+  const Ostudents = await StudentModel.find({ name: { $regex: /o/i } });
+  console.log(Ostudents);
+  mongoose.connection.close();
+}
+// findind O Students !
+// findoOostudents();
+
+const findHYstudents = async () => {
+  const HYstudents = await StudentModel.find({ name: { $regex: /[hHyY]/ } });
+  console.log(HYstudents);
+  mongoose.connection.close();
+}
+// finding HY stdents
+// findHYstudents();
+
+const deleteIdoStudents = async () => {
+  await StudentModel.deleteMany({ name: "Haskell" });
+  mongoose.connection.close();
+}
+//deleting Haskeel because Faker
+// deleteIdoStudents();
+
+const delete1998Students = async () => {
+
+
+  await StudentModel.deleteMany({
+    date: {
+      birth: {
+        $gt: new Date("1998-02-03T00:00:00.000Z"),
+        $lt: new Date("1998-02-05T00:00:00.000Z")
+      }
+    }
+  });
+  mongoose.connection.close();
+}
+// deleting 19980402 date
+// delete1998Students();
 
 
 
