@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const faker = require('faker');
-const { $regex } = require("sift");
 
 const mongoPass = process.argv[2];
 const mongoUrl = `mongodb+srv://elaygelbart:${mongoPass}@elaygelbart.qhmbq.mongodb.net/Ofer?retryWrites=true&w=majority`;
