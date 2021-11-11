@@ -59,14 +59,12 @@ app.post("/create", async (req, res) => {
 app.delete("/remove/:id", async (req, res) => {
   const questionId = req.params.id;
   await QuestionModel.deleteMany({ _id: questionId });
-  console.log(await QuestionModel.find({}));
   res.send({});
 });
 
 app.get("/read/by/difficulty/:difficulty", async (req, res) => {
   const questionDifficulty = req.params.difficulty;
   const questionList = await QuestionModel.find({ difficulty: { $gt: questionDifficulty } }).select({ title: 1, _id: 0, difficulty: 1 });
-  console.log(questionList);
   res.send(questionList);
 })
 
